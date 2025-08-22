@@ -5,6 +5,7 @@ import duckdb
 import pandas as pd
 app = dash.Dash(__name__)
 
+server = app.server
 
 app.layout = html.Div([
       dcc.Tabs([
@@ -203,4 +204,5 @@ def update_plots(selected_location, selected_parameter, start_date, end_date):
 if __name__ == "__main__":
     app.run(
         debug=True
+
         )
