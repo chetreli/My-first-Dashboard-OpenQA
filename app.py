@@ -66,7 +66,7 @@ app.layout = html.Div([
 )
 def update_map(selected_region):
 
-      with duckdb.connect("../air_quality.db", read_only=True) as db_connection:
+      with duckdb.connect("air_quality.db", read_only=True) as db_connection:
         latest_values_df = db_connection.execute(
             "SELECT * FROM presentation.latest_param_values_per_location"
         ).fetchdf()
@@ -206,3 +206,4 @@ if __name__ == "__main__":
         debug=True
 
         )
+
