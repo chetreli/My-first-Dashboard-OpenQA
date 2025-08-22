@@ -119,7 +119,7 @@ def update_map(selected_region):
      Input("region-dropdown-plots", "value"),
 )
 def update_dropdowns(selected_region):
-    with duckdb.connect("../air_quality.db", read_only=True) as db_connection:
+    with duckdb.connect("air_quality.db", read_only=True) as db_connection:
         df = db_connection.execute(
             "SELECT * FROM presentation.daily_air_quality_stats"
         ).fetchdf()
@@ -160,7 +160,7 @@ def update_dropdowns(selected_region):
 )
 def update_plots(selected_location, selected_parameter, start_date, end_date):
 
-      with duckdb.connect("../air_quality.db", read_only=True) as db_connection:
+      with duckdb.connect("air_quality.db", read_only=True) as db_connection:
         daily_stats_df = db_connection.execute(
             "SELECT * FROM presentation.daily_air_quality_stats"
         ).fetchdf()
@@ -206,4 +206,5 @@ if __name__ == "__main__":
         debug=True
 
         )
+
 
